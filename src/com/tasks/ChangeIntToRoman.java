@@ -1,18 +1,20 @@
+package com.tasks;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ChangeIntToRoman {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
     System.out.print("Enter a number: ");
     int num = 0;
     try {
-      num = sc.nextInt();
+      num = scanner.nextInt();
       System.out.println("The number entered by the user: " + num);
     } catch (InputMismatchException e) {
       System.out.println("Wrong format!");
     }
-    sc.close();
+    scanner.close();
     integerToRoman(num);
   }
 

@@ -1,3 +1,5 @@
+package com.tasks;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -6,28 +8,28 @@ import java.util.regex.Pattern;
 public class ChangeRomanToInt {
 
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
     System.out.print("Enter a roman number: ");
-    String num = "";
+    String romanLiteral = "";
     try {
-      num = sc.nextLine();
+      romanLiteral = scanner.nextLine();
 
-      System.out.println("The number entered by the user: " + num);
+      System.out.println("The number entered by the user: " + romanLiteral);
     } catch (InputMismatchException e) {
       System.out.println("Wrong format!");
     }
-    sc.close();
-    System.out.println("And that roman to int: " + romanToInteger(num));
+    scanner.close();
+    System.out.println("And that roman to int: " + romanToInteger(romanLiteral));
   }
 
-  public static int romanToInteger(String s) {
-    if (s == null
-        || s.isEmpty()
-        || !s.matches("^(M{0,3})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$"))
+  public static int romanToInteger(String roman) {
+    if (roman == null
+        || roman.isEmpty()
+        || !roman.matches("^(M{0,3})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$"))
       // return -1;
-      throw new IllegalArgumentException("something bad happened");
+      throw new IllegalArgumentException("Wrong roman literal!");
 
-    final Matcher matcher = Pattern.compile("M|CM|D|CD|C|XC|L|XL|X|IX|V|IV|I").matcher(s);
+    final Matcher matcher = Pattern.compile("M|CM|D|CD|C|XC|L|XL|X|IX|V|IV|I").matcher(roman);
     final int[] decimalValues = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
     final String[] romanNumerals = {
       "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"

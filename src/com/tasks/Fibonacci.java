@@ -1,26 +1,28 @@
+package com.tasks;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Fibonacci {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
     System.out.print("How many numbers to sum from the Fibonacci sequence? Enter a number: ");
-    int num = 0;
+    int amountOfNums = 0;
     try {
-      num = sc.nextInt();
+      amountOfNums = scanner.nextInt();
 
-      System.out.println("The number entered by the user: " + num);
+      System.out.println("The number entered by the user: " + amountOfNums);
     } catch (InputMismatchException e) {
       System.out.println("Wrong format!");
     }
-    sc.close();
+    scanner.close();
     System.out.println(
-        "Sum for " + num + " numbers from Fibonnaci sequence: " + sumNumsInFibonacciSeq(num));
+        "Sum for " + amountOfNums + " numbers from Fibonnaci sequence: " + sumNumsInFibonacciSeq(amountOfNums));
   }
 
   public static int sumNumsInFibonacciSeq(int howMany) {
     int[] fibSeq = new int[howMany + 1];
-    int sum = 0;
+    int sum;
     if (howMany <= 0) sum = 0;
 
     fibSeq[0] = 0;

@@ -1,16 +1,18 @@
+package com.tasks;
+
 public class FactorialsOf5 {
   public static void main(String[] args) {
     System.out.println(calculateFactorials());
   }
 
   public static int calculateFactorials() {
-    int fact = 1;
-    int[] arr = new int[5];
+    int factorial = 1;
+    int[] tabOfInts = new int[5];
     System.out.println("Value of 5! is:");
     for (int i = 0; i <= 4; i++) {
-      arr[i] = i + 1;
-      fact *= arr[i];
+      tabOfInts[i] = i + 1;
+      factorial *= tabOfInts[i];
     }
-    return fact;
+    return factorial;
   }
 }
